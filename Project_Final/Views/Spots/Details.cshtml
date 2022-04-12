@@ -1,0 +1,42 @@
+﻿@model Project_Final.Models.Spots
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Spots</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.spotName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.spotName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.spotLocation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.spotLocation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.spotDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.spotDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.traveller)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.traveller.travellerId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.spotId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

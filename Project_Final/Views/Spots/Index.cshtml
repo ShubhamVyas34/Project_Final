@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Project_Final.Models.Spots>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.spotName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spotLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spotDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.traveller)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.spotName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spotLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spotDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.traveller.travellerId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.spotId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.spotId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.spotId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

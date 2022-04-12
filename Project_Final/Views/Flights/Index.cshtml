@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Project_Final.Models.Flights>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.arrivalCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.depatureCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.passengers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.traveller)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.arrivalCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.depatureCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.passengers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.traveller.travellerId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.flightId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.flightId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.flightId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
